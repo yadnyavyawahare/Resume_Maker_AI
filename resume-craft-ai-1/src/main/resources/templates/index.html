@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ResumeCraft AI - Build Your Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background: linear-gradient(120deg, #f8c4ec, #d8b4fe);
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            background: #fff;
+            margin: 3rem auto;
+            padding: 2rem 3rem;
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(173, 86, 207, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #7c3aed;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            text-align: center;
+            color: #a855f7;
+            margin-bottom: 2rem;
+        }
+
+        label {
+            font-weight: 500;
+            display: block;
+            margin-top: 1.2rem;
+            color: #6b21a8;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-top: 0.5rem;
+            border: 1px solid #c084fc;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        button {
+            margin-top: 2rem;
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #ec4899, #8b5cf6);
+            border: none;
+            color: white;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #d946ef, #7c3aed);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>ResumeCraft AI</h1>
+    <h3>✨ Create a Stunning Resume in Seconds ✨</h3>
+
+    <form th:action="@{/generate}" th:object="${resume}" method="post">
+        <label>Full Name</label>
+        <input type="text" th:field="*{fullName}" required />
+
+        <label>Email</label>
+        <input type="email" th:field="*{email}" required />
+
+        <label>Phone</label>
+        <input type="text" th:field="*{phone}" required />
+
+        <label>Education</label>
+        <textarea th:field="*{education}" rows="3"></textarea>
+
+        <label>Experience</label>
+        <textarea th:field="*{experience}" rows="3"></textarea>
+
+        <label>Skills</label>
+        <textarea th:field="*{skills}" rows="2"></textarea>
+
+        <label>GitHub Profile Link</label>
+        <input type="text" th:field="*{github}" />
+
+        <label>LinkedIn Profile Link</label>
+        <input type="text" th:field="*{linkedin}" />
+
+        <button type="submit">✨ Generate My Resume</button>
+    </form>
+</div>
+
+</body>
+</html>

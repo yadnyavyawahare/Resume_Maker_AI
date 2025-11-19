@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume - [[${resume.fullName}]]</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 2rem;
+            background: white;
+            color: black;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 0.2rem;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            text-align: center;
+            font-weight: normal;
+            margin-bottom: 1rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid black;
+            margin: 1rem 0;
+        }
+
+        section {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin: 0.3rem 0;
+            line-height: 1.5;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        .links a {
+            color: black;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <h1 th:text="${resume.fullName}">Full Name</h1>
+    <h2>
+        <span th:text="${resume.email}">email@example.com</span> |
+        <span th:text="${resume.phone}">+91 1234567890</span>
+    </h2>
+
+    <div class="links">
+        <a th:href="${resume.github}" target="_blank">GitHub</a> |
+        <a th:href="${resume.linkedin}" target="_blank">LinkedIn</a>
+    </div>
+
+    <hr>
+
+    <section>
+        <div class="section-title">Summary</div>
+        <p th:text="${resume.summary}">An aspiring developer with passion for Java and Spring Boot.</p>
+    </section>
+
+    <section>
+        <div class="section-title">Education</div>
+        <p th:text="${resume.education}">Your education details here...</p>
+    </section>
+
+    <section>
+        <div class="section-title">Experience</div>
+        <p th:text="${resume.experience}">Your experience details here...</p>
+    </section>
+
+    <section>
+        <div class="section-title">Skills</div>
+        <p th:text="${resume.skills}">Java, Spring Boot, React.js, PostgreSQL, REST APIs</p>
+    </section>
+
+</div>
+</body>
+</html>
