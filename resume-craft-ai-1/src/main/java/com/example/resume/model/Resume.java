@@ -11,7 +11,7 @@ public class Resume {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+private String userid;
     private String fullName;
     private String email;
     private String phone;
